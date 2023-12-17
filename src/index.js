@@ -6,6 +6,14 @@ dotenv.config({
 })
 
 connectDB()
+.then(() => {
+    app.listen(process.env.PORT || 8000, () => {
+        console.log(`serving at port: ${process.env.PORT}`);
+    })
+})
+.catch((err) => {
+    console.log("db connection failed index.js!!",err);
+})
 
 // import { Express } from "express";
 // const app = express()(async () => {
